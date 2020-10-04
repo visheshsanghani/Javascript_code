@@ -1,0 +1,94 @@
+public class Code {
+
+	Node secondHalf = null;
+  public static void main(String[] args) {
+    Node head = new Node(1);
+    Node node2 = new Node(2);
+    Node node3 = new Node(3);
+    Node node4 = new Node(2);
+    Node node5 = new Node(1);
+		head.next = node2;
+    node2.next = node3;
+    node3.next = node4;
+    node4.next = node5;
+    node5.next = null;
+
+	Code code = new Code();
+	code.printAll(head);
+  code.isPalindrome(head);
+  }
+
+	public void isPalindrome(Node h){
+    Node slw_ptr=h;
+		Node prev_slw = null;
+		Node fst_ptr=h;
+		Node midnode = null;
+		while(fst_ptr != null && fst_ptr.next !=null){
+      prev_slw = slw_ptr;
+			slw_ptr = slw_ptr.next;
+			fst_ptr = fst_ptr.next.next;
+    }
+		
+    if(fst_ptr != null){
+      midnode = slw_ptr;
+      slw_ptr = slw_ptr.next;
+    }
+		secondHalf = slw_ptr;
+		prev_slw.next = null;
+		reverse();
+		boolean c = compare(h,secondHalf);
+		reverse();
+		if(midnode !=null){
+      prev_slw.next = midnode;
+			midnode.next = secondHalf;
+    }
+		else{
+      prev_slw.next = secondHalf;
+    }
+		System.out.println(c);
+  }
+
+  public boolean compare(Node h,Node secondHalf){
+    while(h!=null && secondHalf!=null){
+      if(h.d != secondHalf.d){
+        return false;
+      }
+		h = h.next;
+		secondHalf = secondHalf.next;
+    }
+		if(h != null && secondHalf!= null){
+      return false;
+    }
+	return true;
+  }
+	
+	public void reverse(){
+    Node prev = null;
+		Node current = secondHalf;
+		Node next = null;
+		while(current != null){
+      next = current.next;
+			current.next = prev;
+      prev = current;
+			current = next;
+    }
+    secondHalf = prev;
+    }
+  
+  
+	public static class Node{
+    int d;
+		Node next;
+		Node(int d){
+      this.d = d;
+    }
+  }
+
+	public void printAll(Node h){
+    while(h !=null){
+      System.out.print(h.d + " -> ");
+			h = h.next;
+    }
+  }
+	
+}

@@ -1,0 +1,31 @@
+public class Code {
+  public static void main(String[] args) {
+    Code code = new Code();
+    int[] arr = { 12, 34,221, 42, 8};
+		int x = 1;
+		code.linearSearch(arr , x);
+		int[] arr1 = { 1, 8 , 32 , 45 , 67 , 99};
+    System.out.println(code.binarySearch(arr1 , 0 , arr1.length-1 , 99 ));
+  }
+	public void linearSearch(int[] arr, int x){
+    for(int i = 0 ; i<arr.length;i++){
+      if(arr[i] == x){
+        System.out.println(x + " is found in the arr");
+				return;
+      }
+    }
+	System.out.println(x + " is not found in the arr");
+  }
+  
+	public int binarySearch(int[] arr, int l , int r , int x){
+   if (r >= l) { 
+            int mid = l + (r - l) / 2; 
+            if (arr[mid] == x) 
+                return mid; 
+            if (arr[mid] > x) 
+                return binarySearch(arr, l, mid - 1, x); 
+            return binarySearch(arr, mid + 1, r, x); 
+        } 
+        return -1; 
+    } 
+}

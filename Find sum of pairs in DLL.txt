@@ -1,0 +1,77 @@
+public class Code {
+  Node head = null;
+  static class Node{
+    int d;
+    Node prev;
+    Node next;
+    Node(int d){
+      this.d = d;
+      prev = next = null;
+    }
+  }
+  public void newAdd(Node node){
+    if(head == null)
+    {
+     head = node;
+     return;
+    }
+    node.next = head;
+    head.prev = node;
+    head = node;
+    return;
+  }
+  
+  public void printAll(){
+    Node node = head;
+    while(node != null){
+      System.out.print(node.d + " ");
+      node = node.next;
+    }
+    System.out.println();
+  }
+  
+  public void findSum(int x){
+    boolean found = false;
+    Node start = head;
+    Node end = head;
+    while(end.next != null){
+      end = end.next;
+    }
+//     first != null && second != null && 
+//            first != second && second.next != first
+    while(start != null && end!=null &&
+         start != end && end.next != start){
+      if(start.d + end.d == x){
+        found = true;
+        System.out.print("( " + start.d + " , " +end.d +" )");
+        System.out.println();
+        start = start.next;
+        end = end.prev;
+      }
+      else{
+        if((start.d + end.d) > x){
+          end = end.prev;
+        }
+        else{
+          start = start.next;
+        }
+      }
+    }
+    if(found == false){
+      System.out.println("No pairs sums upto : "+ x );
+    }
+  }
+  public static void main(String[] args) {
+    Code code = new Code();
+    code.newAdd(new Node(9));
+    code.newAdd(new Node(8));
+    code.newAdd(new Node(6));
+    code.newAdd(new Node(5));
+    code.newAdd(new Node(4));
+    code.newAdd(new Node(2));
+    code.newAdd(new Node(1));
+    
+    code.printAll();
+    code.findSum(7);
+  }
+}

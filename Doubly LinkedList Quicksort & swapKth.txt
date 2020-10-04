@@ -1,0 +1,139 @@
+public class Code {
+  Node head;
+  
+  static class Node{
+    int d;
+    Node prev;
+		Node next;
+    Node(int d){
+      this.d = d;
+    	prev = next = null;
+    } 
+  }
+  
+  public void addNew(int d){
+    Node temp = new Node(d);
+    
+    if(head == null){
+      head = temp;
+      return;
+    }
+    
+    temp.next = head;
+    head.prev = temp;
+    head = temp;
+    
+    return;
+  }
+  
+  public void printAll(Node head){
+    Node temp = head;
+    while(temp != null){
+      System.out.print(temp.d + " ");
+      temp = temp.next;
+    }
+    System.out.println();
+    return;
+  }
+  
+  public void quickSort(Node l){
+    Node r = l;
+    while(r.next != null){
+      r = r.next;
+    }
+    _quickSort(l,r);
+  }
+  
+  public void _quickSort(Node l,Node r){
+    if(r!=null && l!=r && l!=r.next){
+ 
+    Node temp = partision(l,r);
+    
+    _quickSort( l,temp.prev);
+    _quickSort(temp.next, r);}
+  }
+  
+  public Node partision(Node l , Node r){
+    Node i = l.prev;
+   	int piv = r.d;
+    
+    for(Node j=l;j !=r ; j = j.next){
+      if(j.d<=piv){
+        i = (i == null)?l:i.next;
+        int temp = i.d;
+        i.d = j.d;
+        j.d = temp;
+      }
+    }
+    i = (i == null)?l:i.next;
+    int temp = i.d;
+        i.d = r.d;
+        r.d = temp;
+    return i;
+  }
+  
+  public void swapKth(int k){
+    Node temp = head;
+    int n = 0;
+    while(temp != null){
+       n++;
+      temp = temp.next;
+    }
+    if(n<k){
+      return;
+    }
+    if(2*k-1 == n){
+      return;
+    }
+    Node x = head;
+//     Node prev_x = null;
+    for(int i = 1 ; i < k ; i++){
+//       prev_x = x;
+      x = x.next;
+    }
+    Node y = head;
+//     Node prev_y = null;
+    for(int i = 1 ; i< n-k+1; i++){
+//       prev_y = y;
+      y = y.next;
+    }
+    
+    if(x.prev != null){
+      x.prev.next = y;
+    }
+    if(y.prev != null){
+      y.prev.next = x;
+    }
+
+    temp = x.prev;
+    x.prev = y.prev;
+    y.prev = temp;
+    
+    temp = x.next;
+    x.next = y.next;
+    y.next = temp;
+  
+   if(k==1)
+     head = y;
+   
+   if(k==n){
+     head = x;
+   }
+  }
+  
+  public static void main(String[] args) {
+    Code code = new Code();
+    code.addNew(3);
+    code.addNew(32);
+    code.addNew(12);
+    code.addNew(6);
+    
+    code.printAll(code.head);
+    
+    code.quickSort(code.head);
+    code.printAll(code.head);
+    
+    code.swapKth(3);
+    code.printAll(code.head);
+  }
+}

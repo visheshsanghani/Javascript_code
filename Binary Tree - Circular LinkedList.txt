@@ -1,0 +1,74 @@
+public class Code {
+  static class Node{
+    int d;
+    Node left;
+    Node right;
+    Node(int d){
+      this.d = d;
+      left = right = null;
+    }
+  }
+   
+  static class Tree{
+ 		Node root; 
+    public Tree() 
+    {
+        root = null; 
+    } 		
+    
+    public Node concatinate(Node leftL,Node rightL){
+      if(leftL == null){
+        return rightL;
+      }
+      if(rightL == null){
+        return leftL;
+      }
+      
+      
+      Node LeftEnd = leftL.left;
+      Node rightEnd = rightL.left;
+      
+      LeftEnd.right = rightL;
+      rightL.left = LeftEnd;
+      leftL.left = rightEnd;
+      rightEnd.right = leftL;
+      
+      return leftL;
+      
+    }
+    
+    
+    public Node bTreetoCircularLinkedList(Node node){
+      if(node == null){
+        return null;
+      }
+      Node left = bTreetoCircularLinkedList(node.left);
+      Node right = bTreetoCircularLinkedList(node.right);
+      
+      node.left = node.right = node;
+      
+      return concatinate(concatinate(left,node),right);
+    }
+    
+    public void printAll(Node head){
+      Node node = head;
+      do{
+        System.out.print(node.d+ " ");
+        node = node.right;
+      }while(node != head);
+    }
+    
+  }
+  public static void main(String[] args) {
+    Tree tree = new Tree();
+    tree.root = new Node(4);
+    tree.root.left = new Node(2);
+    tree.root.left.left = new Node(27);
+    tree.root.left.right = new Node(12);
+    tree.root.right = new Node(32);
+    tree.root.right.left = new Node(43);
+    tree.root.right.right = new Node(90);
+    Node head = tree.bTreetoCircularLinkedList(tree.root);
+    tree.printAll(head);
+  }
+}

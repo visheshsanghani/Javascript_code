@@ -1,0 +1,13 @@
+let a =[ 1,2,3,1,2];
+let b = new Array(1,2,3,1,2);
+Array.prototype.distinct = function(){
+  let c = [];
+  for(let i = 0;i<this.length;i++){
+    if(!c.includes(this[i])){
+      c.push(this[i]);
+    }
+  }
+  return c;
+}
+
+b.distinct()

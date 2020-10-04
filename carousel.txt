@@ -1,0 +1,105 @@
+<div className="jumbotron jumbotron-fluid home_page position-relative p-0 mt-md-1 mt-5">
+                <div className="container-fluid testimonials pb-3 px-0 px-lg-3">
+                    <div className="col-12 px-0 px-2">
+                        <div id="carouselIndicators" className="carousel slide mt-5" data-ride="carousel">
+                            <ol className="carousel-indicators">
+                                <li data-target="#carouselIndicators" data-slide-to={0} className="active" />
+                                <li data-target="#carouselIndicators" data-slide-to={1} className="active" />
+                                <li data-target="#carouselIndicators" data-slide-to={2} />
+                                <li data-target="#carouselIndicators" data-slide-to={3} />
+                            </ol>
+                            <div className="carousel-inner mx-auto position-relative" style={{ width: '100%', zIndex: 1, minHeight: 200 }}>
+                                <div className="carousel-item active">
+                                    <div className="card">
+                                        <div className="card-header d-flex flex-row align-items-center bg-transparent border-0">
+                                            <div className="pl-3">
+                                                <p className="sub_title">Vishesh Sanghani</p>
+                                                <p className="sub_title_content">Content</p>
+                                            </div>
+                                        </div>
+                                        <div className="quotes user_say_title" style={{ top: '-30%' }}>
+                                            <div className="title">{('home.users_say')}</div>
+                                        </div>
+                                        <div className="quotes" style={{ top: '-30%' }}>
+                                            <i className="fas fa-quote-left"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="carousel-item">
+                                    <div className="card">
+                                        <div className="card-header d-flex flex-row align-items-center bg-transparent border-0">
+                                            <div className="pl-3">
+                                                <p className="sub_title">{('home.users_2_name')}</p>
+                                                <p className="sub_title_content">{('home.users_2_designation')} {('home.users_2_place')}</p>
+                                            </div>
+                                        </div>
+                                        <div className="quotes user_say_title">
+                                            <div className="title">{('home.users_say')}</div>
+                                        </div>
+                                        <div className="quotes">
+                                            <i className="fas fa-quote-left"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="carousel-item">
+                                    <div className="card">
+                                        <div className="card-header d-flex flex-row align-items-center bg-transparent border-0">
+                                            <div className="pl-3">
+                                                <p className="sub_title">{('home.users_3_name')}</p>
+                                                <p className="sub_title_content">{('home.users_3_designation')} {('home.users_3_place')}</p>
+                                            </div>
+                                        </div>
+                                        <div className="card-body border-0 pt-2">
+                                            <p className="quotes-text">
+                                                « {('home.users_3_review')} »
+                                                </p>
+                                        </div>
+                                        <div className="quotes user_say_title" style={{ top: '-30%' }}>
+                                            <div className="title">{('home.users_say')}</div>
+                                        </div>
+                                        <div className="quotes" style={{ top: '-30%' }}>
+                                            <i className="fas fa-quote-left"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="carousel-item">
+                                    <div className="card">
+                                        <div className="card-header d-flex flex-row align-items-center bg-transparent border-0">
+                                            <div className="pl-3">
+                                                <p className="sub_title">{('home.users_4_name')}</p>
+                                                <p className="sub_title_content">{('home.users_4_designation')} {('home.users_4_place')}</p>
+                                            </div>
+                                        </div>
+                                        <div className="card-body border-0 pt-2">
+                                            <p className="quotes-text">
+                                                « {('home.users_4_review_1')} <br /><br /> {('home.users_4_review_2')} <br /><br /> {('home.users_4_review_3')} »
+                                                </p>
+                                        </div>
+                                        <div className="quotes user_say_title">
+                                            <div className="title">{('home.users_say')}</div>
+                                        </div>
+                                        <div className="quotes">
+                                            <i className="fas fa-quote-left"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            {/* <div className="quotes">
+                                    <i className="fas fa-quote-left"></i>
+                                </div> */}
+
+                            <a className="carousel-control-prev" href="#carouselIndicators" role="button" data-slide="prev" style={{ opacity: 1 }}>
+                                {/* <span className="carousel-control-prev-icon" aria-hidden="true" /> */}
+                                <i className="fas fa-arrow-left fa-2x"></i>
+                                <span className="sr-only">Previous</span>
+                            </a>
+                            <a className="carousel-control-next" href="#carouselIndicators" role="button" data-slide="next" style={{ opacity: 1 }}>
+                                {/* <span className="carousel-control-next-icon" aria-hidden="true" /> */}
+                                <i className="fas fa-arrow-right fa-2x"></i>
+                                <span className="sr-only">Next</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div className="bg-lightblue"></div>
+            </div>
